@@ -1,0 +1,2 @@
+1. django-admin startproject project_name - create the new project 'project_name'
+local_settings.py
