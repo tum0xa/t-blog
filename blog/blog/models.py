@@ -21,5 +21,5 @@ class Theme(models.Model):
         return self.name
 
     class Meta:
-        verbose_name = "тема"
+        verbose_name = "тему"
         verbose_name_plural = "темы"
