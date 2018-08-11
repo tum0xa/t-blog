@@ -1,16 +1,9 @@
+{% if themes_list %}
 <div class="nav-scroller py-1 mb-2">
     <nav class="nav d-flex justify-content-between">
-        <a class="p-2 text-muted" href="#">Home</a>
-        <a class="p-2 text-muted" href="#">Family</a>
-        <a class="p-2 text-muted" href="#">Technologies</a>
-        <a class="p-2 text-muted" href="#">Design</a>
-        <a class="p-2 text-muted" href="#">Culture</a>
-        <a class="p-2 text-muted" href="#">Business</a>
-        <a class="p-2 text-muted" href="#">Python</a>
-        <a class="p-2 text-muted" href="#">Django</a>
-        <a class="p-2 text-muted" href="#">Data Science</a>
-        <a class="p-2 text-muted" href="#">Urbanism</a>
-        <a class="p-2 text-muted" href="#">Style</a>
-        <a class="p-2 text-muted" href="#">Travel</a>
+        {% for theme in themes_list %}
+        <a class="p-2 text-muted" href="/{{ theme.slug }}">{{ theme.name }}</a>
+        {% endfor %}
     </nav>
 </div>
+{% endif %}
