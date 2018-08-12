@@ -36,3 +36,36 @@ class Theme(models.Model):
 
         verbose_name = "Theme"
         # verbose_name_plural = ""
+
+
+class Post(models.Model):
+    """
+    Class Post
+    Публикация
+    """
+
+    title = models.CharField(default="Unknown Post",
+                             max_length=255,
+                             blank=False,
+                             unique=True,
+                             verbose_name="Заголовок публикации"
+                             )
+    slug = models.SlugField(default="unknownpost",
+                            max_length=128,
+                            blank=False,
+                            verbose_name="Относительный url-адрес")
+    content = models.TextField(default="Some text of post",
+                               blank=False,
+                               verbose_name="Содержимое публикации")
+    # TODO Add theme
+    # TODO Add author
+    publication_date = models.DateField(auto_now_add=True,
+                                        verbose_name="Дата публикации")
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+
+        verbose_name = "Poat"
+        # verbose_name_plural = ""
