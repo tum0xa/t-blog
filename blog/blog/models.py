@@ -67,5 +67,5 @@ class Post(models.Model):
 
     class Meta:
 
-        verbose_name = "Poat"
+        verbose_name = "Post"
         # verbose_name_plural = ""
