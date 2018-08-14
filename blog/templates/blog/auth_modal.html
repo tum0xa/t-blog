@@ -8,7 +8,8 @@
         </button>
       </div>
       <div class="modal-body">
-        <form>
+        <form method="post">
+          {% csrf_token %}
           <div class="form-group">
             <label for="username" class="col-form-label">Имя пользователя:</label>
             <input type="text" class="form-control" id="username">
@@ -21,7 +22,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
-        <button type="button" class="btn btn-primary">Войти</button>
+        <button type="button" class="btn btn-primary" id="btn_auth">Войти</button>
       </div>
     </div>
   </div>
