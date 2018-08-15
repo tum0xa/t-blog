@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 
 from .models import Theme, Post
 
@@ -28,3 +28,8 @@ def over_login(request):
             return HttpResponse('Login success!')
     else:
         return HttpResponse('User does not exist!')
+
+
+def over_logout(request):
+    logout(request)
+    return HttpResponse('Logout complete!')

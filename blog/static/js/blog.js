@@ -5,6 +5,18 @@ function csrfSafeMethod(method) {
     return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
 }
 
+$('#btn_logout').click(function(){
+$.ajax({
+url: '/logout/',
+success: function(data){
+//        $('#LogoutModal').modal('hide');
+        $('#btn_login').removeAttr('hidden');
+        $('#btn_logout').attr('hidden',true);
+        }
+}
+); // end ajax
+}); //end click
+
 $('#btn_auth').click(function(){
 var username = $('#username')[0].value;
 var password = $('#password')[0].value;
@@ -23,6 +35,8 @@ data: { 'username': username,
       },
 success: function(data){
         $('#AuthModal').modal('hide');
+        $('#btn_logout').removeAttr('hidden');
+        $('#btn_login').attr('hidden',true);
         }
 //function(){
 ////    alert(html);

@@ -23,5 +23,7 @@ import blog.views as views
 urlpatterns = [
     path('', views.index, name='index'),
     path('admin/', admin.site.urls),
-    path('login/', views.over_login, name='login')
+    path('login/', views.over_login, name='login'),
+    path('logout/', views.over_logout,name='logout')
+
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
