@@ -1,6 +1,8 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth import authenticate, login, logout
+
+from django.contrib.auth.models import User
 
 from .models import Theme, Post
 
@@ -8,9 +10,22 @@ from .models import Theme, Post
 def index(request):
     themes_list = Theme.objects.all()
     last_post_list = Post.objects.order_by('-publication_date')[:5]
-    context = {'themes_list': themes_list,
+    debug = request.session.get('_auth_user_id')
+    context = {
+               'themes_list': themes_list,
                'post_list': last_post_list,
+               'debug': debug,
                }
+
+    try:
+        user_id = request.session['_auth_user_id']
+        user = User.objects.get(id=user_id)
+    except Exception:
+        pass
+    else:
+        print('Update OK')
+        context.update({'user': user})
+
     return render(request, 'blog/index.html', context)
 
 
@@ -25,11 +40,14 @@ def over_login(request):
         except Exception:
             return HttpResponse('Login failed!')
         else:
-            return HttpResponse('Login success!')
+            request.session['user_id'] = user.id
+            # return HttpResponse('Login success!')
+            return HttpResponseRedirect('/')
     else:
         return HttpResponse('User does not exist!')
 
 
 def over_logout(request):
     logout(request)
-    return HttpResponse('Logout complete!')
+    # return HttpResponse('Logout complete!')
+    return HttpResponseRedirect('/')
