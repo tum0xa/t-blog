@@ -1,5 +1,9 @@
 # t-blog
-Personal blog
+**Тимофей (tum0xa) Самодуров | Timofey (tum0xa) Samodurov**
+
+blog.tum0xa.ru
+
+Мой Личный Блог | My Personal Blog
 
 Useful Links:
 https://semver.org - Semantic Versioning
