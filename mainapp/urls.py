@@ -6,6 +6,7 @@ app_name = 'mainapp'
 
 urlpatterns = [
     path('', views.main, name="main"),
+    path('subscribe/', views.subscribe, name="subscribe"),
     path('admin/', admin.site.urls),
 
 ]
