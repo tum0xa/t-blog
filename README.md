@@ -16,3 +16,5 @@ Useful Links:
 * https://semver.org/lang/ru - Семантическое Версионирование 
 
 * https://docs.djangoproject.com - Документация по Джанго
+
+* https://cdnjs.com - CDN (Content Delivery Network) для js скриптов
